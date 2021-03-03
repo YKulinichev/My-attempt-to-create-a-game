@@ -1,0 +1,46 @@
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-background-color: #2E3351;" xmlns:fx="http://javafx.com/fxml/1" fx:controller="playerBase.Controller">
+   <children>
+      <AnchorPane layoutX="-1.0" layoutY="60.0" prefHeight="342.0" prefWidth="707.0" style="-background-color: #FF0000;">
+         <children>
+            <TextField fx:id="login_filed" layoutX="204.0" layoutY="120.0" prefHeight="25.0" prefWidth="334.0" promptText="Login" style=" -border-radius: 8; -background-color: #0000FF; -border-color: silver;">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="password_filed" layoutX="204.0" layoutY="171.0" prefHeight="25.0" prefWidth="334.0" promptText="Password" style="-background-color: #0000FF; -border-color: silver; -border-radius: 5;">
+               <font>
+                  <Font name="Century" size="17.0" />
+               </font>
+            </PasswordField>
+            <Label layoutX="250.0" layoutY="44.0" prefHeight="35.0" prefWidth="269.0" text="Authorization" textFill="#1148a8d6">
+               <font>
+                  <Font name="Century" size="30.0" />
+               </font>
+            </Label>
+            <Button fx:id="authSignButton" layoutX="294.0" layoutY="237.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="118.0" style="-background-color: #F39C63;" text="Enter" textFill="#1e4020">
+               <font>
+                  <Font name="Century" size="24.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Label layoutX="180.0" text="Speed Race" textFill="#ffffffd5">
+         <font>
+            <Font name="Century" size="56.0" />
+         </font>
+      </Label>
+      <Button fx:id="loginSignUpButton" layoutX="568.0" layoutY="10.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="118.0" style="-background-color: #F39C63;" text="To Register" textFill="#1e4020">
+         <font>
+            <Font name="Century" size="16.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
