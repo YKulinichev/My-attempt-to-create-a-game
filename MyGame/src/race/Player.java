@@ -6,6 +6,9 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Player {
 	public static final int MAX_V = 100;
 	public static final int MAX_TOP = -50;
@@ -15,17 +18,12 @@ public class Player {
 	Image img_L = new ImageIcon("src/res/playerUP.png").getImage();
 	Image img_R = new ImageIcon("src/res/playerDown.png").getImage();
 
-	//Image img_c = new ImageIcon("src/ru/java2e/res/player.png").getImage();
-	//Image img_L = new ImageIcon("src/ru/java2e/res/playerUP.png").getImage();
-	//Image img_R = new ImageIcon("src/ru/java2e/res/playerDown.png").getImage();
 	Image img = img_c;
 	
 	public Rectangle getRect() {
 		return new Rectangle(x,y,300,128);
 	}
-	
-	
-	
+		
 	int v = 0;
 	int dv = 0;
 	int s = 0;
@@ -56,7 +54,7 @@ public class Player {
 	}
 
 	
-	public void keyPressed(KeyEvent e) {
+	public void getKeyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
 		if (key == KeyEvent.VK_RIGHT) {
 			dv = 2;
@@ -77,7 +75,7 @@ public class Player {
 	}
 
 	
-	public void keyReleased(KeyEvent e) {
+	public void getKeyReleased(KeyEvent e) {
 		int key = e.getKeyCode();
 		if (key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_LEFT) {
 			dv = 0;

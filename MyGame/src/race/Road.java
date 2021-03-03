@@ -19,18 +19,26 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+
+
 public class Road extends JPanel implements ActionListener, Runnable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	Timer mainTimer = new Timer(20, this);
 	Image img = new ImageIcon("src/res/bg_road.jpg").getImage();
-	//Image img = new ImageIcon("src/ru/java2e/res/bg_road.jpg").getImage();
-	Player p = new Player();
-
+	
+	//Player p = new Player();
+	
+	//creating an instance of the class Player
+	// read spring config file
+	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+			
+	//get the bean from spring container
+	Player thePlayer = context.getBean("player", Player.class); 
+		
 	Thread enemiesFactory = new Thread(this);
 
 	List<Enemy> enemies = new ArrayList<Enemy>();
@@ -45,11 +53,11 @@ public class Road extends JPanel implements ActionListener, Runnable {
 
 	private class MyKeyAdapter extends KeyAdapter {
 		public void keyPressed(KeyEvent e) {
-			p.keyPressed(e);
-		}
+			thePlayer.getKeyPressed(e);
+			}
 
 		public void keyReleased(KeyEvent e) {
-			p.keyReleased(e);
+			thePlayer.getKeyReleased(e);
 		}
 
 	}
@@ -57,11 +65,11 @@ public class Road extends JPanel implements ActionListener, Runnable {
 	
 	public void paint(Graphics g) {
 		g = (Graphics2D) g;
-		g.drawImage(img, p.layer1, 0, null);
-		g.drawImage(img, p.layer2, 0, null);
-		g.drawImage(p.img, p.x, p.y, null);
+		g.drawImage(img, thePlayer.layer1, 0, null);
+		g.drawImage(img, thePlayer.layer2, 0, null);
+		g.drawImage(thePlayer.img, thePlayer.x, thePlayer.y, null);
 		
-		double v = (200/Player.MAX_V)*p.v;
+		double v = (200/Player.MAX_V)*thePlayer.v;
 		g.setColor(Color.WHITE);
 		Font font = new Font("Arial", Font.ITALIC, 20 );
 		g.setFont(font);
@@ -84,7 +92,7 @@ public class Road extends JPanel implements ActionListener, Runnable {
 
 	
 	public void actionPerformed(ActionEvent e) {
-		p.move();
+		thePlayer.move();
 		repaint();
 		testColisionWithEnemies();
 		
@@ -96,7 +104,7 @@ public class Road extends JPanel implements ActionListener, Runnable {
 		Iterator<Enemy> i = enemies.iterator();
 		while (i.hasNext()) {
 			Enemy e = i.next();
-			if (p.getRect().intersects(e.getRect())) {
+			if (thePlayer.getRect().intersects(e.getRect())) {
 				JOptionPane.showMessageDialog(null, "You lose!!!");
 				System.exit(1);
 			}
@@ -119,4 +127,5 @@ public class Road extends JPanel implements ActionListener, Runnable {
 		}
 
 	}
+	
 }

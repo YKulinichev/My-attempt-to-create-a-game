@@ -5,6 +5,9 @@ import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
 
+
+
+
 public class Enemy {
 	int x;
 	int y;
@@ -25,7 +28,7 @@ public class Enemy {
 	}
 	
 		public void move() {
-			x = x - road.p.v + v;
+			x = x - road.thePlayer.v + v;
 			
 		}
 	
