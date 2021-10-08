@@ -3,15 +3,14 @@ package playerBase;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javax.swing.JOptionPane;
+
 import javafx.fxml.FXML;
-//import javafx.fxml.FXMLLoader;
-//import javafx.scene.Parent;
-//import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-//import javafx.stage.Stage;
+
 
 public class SignUpController {
 
@@ -51,11 +50,15 @@ public class SignUpController {
     	
     	signUpButton.setOnAction(event -> {
     		
+    		
     		singnUpNewUser();
-    			
+    		
+    		JOptionPane.showMessageDialog(null, "Registration complite");
+    		    				
+    		System.exit(1);
+    		});
     	
-    	});
-
+    		  	
     }
 
 	private void singnUpNewUser() {

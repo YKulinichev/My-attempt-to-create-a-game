@@ -1,11 +1,37 @@
 package playerBase;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="users")
 public class User {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="idusers")
+	private int	idusers;
+	
+	@Column(name="firstname")
 	private String firstName;
+	
+	@Column(name="lastname")
 	private String lastName;
+	
+	@Column(name="login")
 	private String login;
+	
+	@Column(name="password")
 	private String password;
+	
+	@Column(name="country")
 	private String country;
+	
+	@Column(name="gender")
 	private String gender;
 	
 	
@@ -58,5 +84,12 @@ public class User {
 		this.gender = gender;
 	}
 	
+	public int getIdusers() {
+		return idusers;
+	}
+	
+	public void setIdusers(int idusers) {
+		this.idusers = idusers;
+	}
 
 }
